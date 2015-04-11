@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #define NUM_PIXELS 96
+#define SERIAL_PORT "COM5"
 
 void fillBuffer(char* buffer, int length, char* color)
 {
@@ -27,7 +28,7 @@ int main() {
     bluePixel[2] = (char)0xFF;
     bluePixel[0] = bluePixel[1] = (char)0x00;
 
-    Serial serial = Serial("COM5");
+    Serial serial = Serial(SERIAL_PORT);
     if (!serial.IsConnected())
     {
         fprintf_s(stderr, "Serial port communication failure. Aborting.");
